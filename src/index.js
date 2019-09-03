@@ -22,13 +22,35 @@ const resContainer = () => {
     for(let i=0;i<22;i++) {
         const item = document.createElement('div');
         item.setAttribute('class', 'resItem');
-        if(i==0) item.innerHTML = 'Team A';
-        if(i==1) item.innerHTML = 'Team B';
-        if(i==2||i==4) item.innerHTML = 'Top:';
-        if(i==6||i==8) item.innerHTML = 'Jungle:';
-        if(i==10||i==12) item.innerHTML = 'Mid:';
-        if(i==14||i==16) item.innerHTML = 'Bottom:';
-        if(i==18||i==20) item.innerHTML = 'Support:';
+        if(i==0) {
+            item.innerHTML = 'Team A';
+            item.setAttribute('class', 'teamName');
+        }
+        if(i==1) {
+            item.innerHTML = 'Team B';
+            item.setAttribute('class', 'teamName');
+        }
+        if(i==2||i==4) {
+            item.innerHTML = 'Top:';
+            item.setAttribute('class', 'Position');
+        }
+
+        if(i==6||i==8) {
+            item.innerHTML = 'Jungle:';
+            item.setAttribute('class', 'Position');
+        }
+        if(i==10||i==12) {
+            item.innerHTML = 'Mid:';
+            item.setAttribute('class', 'Position');
+        }
+        if(i==14||i==16) {
+            item.innerHTML = 'Bottom:';
+            item.setAttribute('class', 'Position');
+        }
+        if(i==18||i==20) {
+            item.innerHTML = 'Support:';
+            item.setAttribute('class', 'Position');
+        }
         element.appendChild(item);
     }
 
@@ -39,6 +61,7 @@ const placePlayers = (playerArray) => {
     for(let i=4;i<=22;i+=2) {
         let box = document.querySelector(`.resItem:nth-child(${i})`);
         box.innerHTML = `${playerArray[j]}`;
+        box.setAttribute('class', 'player');
         j++;
     }
 }
@@ -65,8 +88,18 @@ const gatherPlayers = () => {
     placePlayers(resultPlayers);
 }
 
+const addBaner = () => {
+    const element =  document.createElement('header');
+    element.setAttribute('class', 'header');
+    const text = document.createElement('div');
+    text.innerHTML = 'Good luck on the Fields of Justice!';
+    document.querySelector('#root').appendChild(element);
+    element.appendChild(text);
+}
+
 
 window.onload = () => {
+    addBaner();
     playerContainer();
     resContainer();
     document.querySelector('.rollButton').addEventListener('click', gatherPlayers);

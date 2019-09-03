@@ -1,21 +1,106 @@
-.resContainer {
+* {
+  margin: 0;
+}
+
+#root {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+#root .header {
+  height: 110px;
+  background-color: white;
+  border-bottom: 5px solid #fda50f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+#root .header div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #fda50f;
+  font-size: 3em;
+  text-shadow: 1px 1px gray;
+  font-style: italic;
+}
+
+#root .playerContainer {
+  height: 430px;
+}
+
+#root .playerContainer div {
+  margin: 12px;
+}
+
+#root .playerContainer div #rollButton {
+  width: 100%;
+  height: 90px;
+  background-color: #fda50f;
+  color: white;
+  font-size: 3em;
+  font-style: italic;
+  border-radius: 20px;
+  border: none;
+  font-weight: 800;
+}
+
+#root .playerContainer div #rollButton:hover {
+  color: #fda50f;
+  background-color: white;
+  border: 2px solid #fda50f;
+}
+
+#root .playerContainer div #rollButton:focus {
+  outline: 0;
+}
+
+#root .playerContainer div #rollButton:active {
+  background-color: #fda50f;
+}
+
+#root .resContainer {
+  height: 380px;
+  background-color: lightblue;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto auto auto;
       grid-template-columns: auto auto auto auto;
-  -ms-grid-rows: 50px 50px 50px 50px 50px 50px;
-      grid-template-rows: 50px 50px 50px 50px 50px 50px;
+  -ms-grid-rows: auto auto auto auto auto auto;
+      grid-template-rows: auto auto auto auto auto auto;
 }
 
-.resContainer div {
-  border: 1px solid black;
+#root .resContainer .Position {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-.resContainer div:nth-child(1) {
+#root .resContainer .teamName {
+  place-self: center;
+}
+
+#root .resContainer .player {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#root .resContainer div:nth-child(1) {
   grid-column: span 2;
 }
 
-.resContainer div:nth-child(2) {
+#root .resContainer div:nth-child(2) {
   grid-column: span 2;
 }
 /*# sourceMappingURL=style.css.map */
