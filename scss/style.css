@@ -1,0 +1,21 @@
+.resContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
+  -ms-grid-rows: 50px 50px 50px 50px 50px 50px;
+      grid-template-rows: 50px 50px 50px 50px 50px 50px;
+}
+
+.resContainer div {
+  border: 1px solid black;
+}
+
+.resContainer div:nth-child(1) {
+  grid-column: span 2;
+}
+
+.resContainer div:nth-child(2) {
+  grid-column: span 2;
+}
+/*# sourceMappingURL=style.css.map */
