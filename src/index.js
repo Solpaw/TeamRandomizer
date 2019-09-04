@@ -12,7 +12,7 @@ const playerContainer = () => {
 
     for(let i=1;i<=10;i++) {
         const player = document.createElement('div');
-        player.innerHTML = `<form>Player:<input type="text" class="nameInput" id="player${i}"/><select class="inputPref">
+        player.innerHTML = `<form><input type="text" class="nameInput" id="player${i}"/><select class="inputPref">
                 <option value="random">Random</option>
                 <option value="forceTop">Force Top</option>
                 <option value="forceJungle">Force Jungle</option>
@@ -313,6 +313,8 @@ const gatherPlayers = () => {
     const randomizedArray = randomize(playerArray);
     if(randomizedArray=='fail') location.reload();
     placePlayers(randomizedArray);
+    let ele = document.querySelectorAll('.resItem')[10];
+    ele.scrollIntoView();
 }
 
 const addBaner = () => {

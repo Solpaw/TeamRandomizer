@@ -1,6 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
-  background-color: beige;
 }
 
 #root {
@@ -10,7 +13,6 @@
 
 #root .header {
   height: 110px;
-  background-color: white;
   border-bottom: 5px solid #fda50f;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,6 +46,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 5px;
 }
 
 #root .playerContainer div {
@@ -78,6 +81,27 @@
   background-color: #fda50f;
 }
 
+#root .playerContainer div .nameInput {
+  margin: 0 10px;
+  border: 1.5px solid #fda50f;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+#root .playerContainer div .nameInput:focus {
+  outline: 0;
+}
+
+#root .playerContainer div select {
+  border: 1.5px solid #fda50f;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+#root .playerContainer div select:focus {
+  outline: 0;
+}
+
 #root .playerContainer div:nth-child(11) {
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
@@ -86,7 +110,6 @@
 
 #root .resContainer {
   height: 380px;
-  background-color: beige;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -99,7 +122,22 @@
   justify-items: center;
 }
 
-#root .resContainer div {
-  border: 1px solid black;
+#root .resContainer .teamName {
+  color: #fda50f;
+  font-style: italic;
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 1px 1px gray;
+}
+
+#root .resContainer .Position {
+  color: #fda50f;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+#root .resContainer .resItem {
+  font-weight: 600;
+  font-size: 1.2em;
 }
 /*# sourceMappingURL=style.css.map */
