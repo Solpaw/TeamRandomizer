@@ -139,7 +139,6 @@ const placeNeeded = (playerArray, index, playerInd, checklist) => {
                 count++;
             }
         }
-        console.log(count);
         if(count==1) return true;
     }
     return false;
@@ -316,7 +315,6 @@ const randomize = (playerArray) => {
                     while(avail[rand]==0||avail[rand]==1||placeNeeded(playerArray, avail[rand], i, checklist)) {
                         rand = Math.floor(Math.random()*avail.length);
                         if(++c==10000){
-                            alert('Failed to find teams');
                             return 'fail';
                         }
                     }
@@ -328,7 +326,6 @@ const randomize = (playerArray) => {
                     while(avail[rand]==2||avail[rand]==3||placeNeeded(playerArray, avail[rand], i, checklist)){
                         rand = Math.floor(Math.random()*avail.length);
                         if(++c==10000){
-                            alert('Failed to find teams');
                             return 'fail';
                         }
                     }
@@ -340,7 +337,6 @@ const randomize = (playerArray) => {
                     while(avail[rand]==4||avail[rand]==5||placeNeeded(playerArray, avail[rand], i, checklist)){
                         rand = Math.floor(Math.random()*avail.length);
                         if(++c==10000){
-                            alert('Failed to find teams');
                             return 'fail';
                         }
                     }
@@ -352,7 +348,6 @@ const randomize = (playerArray) => {
                     while(avail[rand]==6||avail[rand]==7){
                         rand = Math.floor(Math.random()*avail.length);
                         if(++c==10000){
-                            alert('Failed to find teams');
                             return 'fail';
                         }
                     }
@@ -364,7 +359,6 @@ const randomize = (playerArray) => {
                     while(avail[rand]==8||avail[rand]==9||placeNeeded(playerArray, avail[rand], i, checklist)){
                         rand = Math.floor(Math.random()*avail.length);
                         if(++c==10000){
-                            alert('Failed to find teams');
                             return 'fail';
                         }
                     }
@@ -399,9 +393,20 @@ const gatherPlayers = () => {
         const player = new Player(name, preferred);
         playerArray.push(player);
     }
-    const randomizedArray = randomize(playerArray);
-    if(randomizedArray=='fail') return;
-
+    let randomizedArray = randomize(playerArray);
+    let counter = 0;
+    while(true) {
+        if(++counter==1000) {
+            alert('Failed to find teams');
+            return;
+        }
+        if(randomizedArray != 'fail') break;
+        for(let i=0;i<10;i++) {
+            playerArray[i].placed = false;
+        }
+        randomizedArray = randomize(playerArray);
+    }
+    console.log(randomizedArray);
     placePlayers(randomizedArray);
     let ele = document.querySelectorAll('.resItem')[10];
     ele.scrollIntoView();
